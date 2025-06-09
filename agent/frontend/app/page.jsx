@@ -21,7 +21,7 @@ import InfoWizard from "./components/InfoWizard";
 
 export default function HomePage() {
   const [selectedOption, setSelectedOption] = useState("new"); // "new", "resume", or "list"
-  const [issue, setIssue] = useState("My vehicle’s fuel consumption has increased significantly over the past week. What might be wrong with the engine or fuel system?");
+  const [issue, setIssue] = useState("Armada kami mengalami kenaikan konsumsi bahan bakar selama semingu lalu. Kira-kira apa yang menyebabkan hal tersebut?");
   const [threadId, setThreadId] = useState("");
   const [workflow, setWorkflow] = useState(null);
   const [sessions, setSessions] = useState(null);
@@ -189,33 +189,33 @@ export default function HomePage() {
       </div>
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif", width: "100%" }}>
         
-      <H1 style={{ marginBottom: "5px" }}>Connected Fleet Incident Advisor </H1>
-      <Body>The Connected Fleet Advisor Demo showcases an AI-driven diagnostic system for vehicles. It implements a multi-step diagnostic workflow using <b>LangGraph</b>. The backend reads telemetry data from a CSV file (simulating vehicle sensor inputs), generates text embeddings using <b>Voyage AI</b> voyage-3-large model, performs vector searches to identify similar past issues using <b>MongoDB Atlas Vector Search</b>, persists session and run data, and finally generates a diagnostic recommendation. <b>MongoDB</b> stores agent profiles, historical recommendations, telemetry data, session logs, and more. This persistent storage not only logs every step of the diagnostic process for traceability but also enables efficient querying and reusability of past data.</Body>
-      <H3 style={{ marginBottom: "20px", marginTop: "20px"  }}>Please choose one of the following options </H3>
+      <H1 style={{ marginBottom: "5px" }}>Asisten AI Seputar Armada </H1>
+      {/* <Body>The Connected Fleet Advisor Demo showcases an AI-driven diagnostic system for vehicles. It implements a multi-step diagnostic workflow using <b>LangGraph</b>. The backend reads telemetry data from a CSV file (simulating vehicle sensor inputs), generates text embeddings using <b>Voyage AI</b> voyage-3-large model, performs vector searches to identify similar past issues using <b>MongoDB Atlas Vector Search</b>, persists session and run data, and finally generates a diagnostic recommendation. <b>MongoDB</b> stores agent profiles, historical recommendations, telemetry data, session logs, and more. This persistent storage not only logs every step of the diagnostic process for traceability but also enables efficient querying and reusability of past data.</Body>
+      <H3 style={{ marginBottom: "20px", marginTop: "20px"  }}>Please choose one of the following options </H3> */}
 
       {/* Option Buttons */}
       <div style={{ marginBottom: "20px" }}>
         <Button onClick={() => handleViewChange("new")} style={{ marginRight: "10px" }} variant="primary">
-          New Diagnosis
+           Pertanyaan Baru
         </Button>
 
         <Button onClick={() => handleViewChange("resume")} style={{ marginRight: "10px" }} variant="primary">
-          Resume Diagnosis
+          Lanjut Pertanyaan Sebelumnya
         </Button>
-        <Button onClick={() => handleViewChange("list")} variant="primary">
+        {/* <Button onClick={() => handleViewChange("list")} variant="primary">
           List Sessions
         </Button>
-       
+        */}
       </div>
 
       <div style={{ display: "flex", width: "100%" }}>
         {/* Left Column: Agent Workflow Output */}
-        <div style={{ flex: 1, maxWidth: "50%", padding: "20px", borderRight: "1px solid #ccc", overflowX: "auto" }}>
+        <div style={{ flex: 1, maxWidth: "100%", padding: "20px", borderRight: "1px solid #ccc", overflowX: "auto" }}>
           {selectedOption === "new" && (
             <>
-              <Subtitle>New Diagnosis</Subtitle>
+              <Subtitle>Pertanyaan Baru</Subtitle>
               <Label style={{ display: "block", marginTop: "10px" }}>
-                Issue Report:
+                Masukan pertanyaan di bawah ini:
                 <input
                   type="text"
                   value={issue}
@@ -224,14 +224,14 @@ export default function HomePage() {
                 />
               </Label>
               <Button onClick={runAgent} disabled={loading}  variant="baseGreen" style={{ marginTop: "20px", padding: "8px 12px" }}>
-                Run Agent
+                Mulai bertanya
               </Button>
             </>
           )}
 
           {selectedOption === "resume" && (
             <>
-              <Subtitle>Resume Diagnosis</Subtitle>
+              <Subtitle>Lanjut Pertanyaan Sebelumnya</Subtitle>
               <Label style={{ display: "block", marginTop: "10px" }}>
                 Thread ID:
                 <input
@@ -242,17 +242,17 @@ export default function HomePage() {
                 />
               </Label>
               <Button onClick={resumeAgent} disabled={loading} variant="baseGreen" style={{ marginTop: "20px", padding: "8px 12px" }}>
-                Resume Agent
+                Lanjutkan pertanyaan
               </Button>
             </>
           )}
 
           {(selectedOption === "new" || selectedOption === "resume") && (
             <>
-              {loading && <Body style={{ fontStyle: "italic", marginTop: "10px" }}>Processing... The agent is thinking...</Body>}
+              {loading && <Body style={{ fontStyle: "italic", marginTop: "10px" }}>Mohon ditunggu... Asisten AI sedang berpikir...</Body>}
               {workflow && (
                 <div style={{ marginTop: "20px" }}>
-                  <Subtitle>Agent Workflow</Subtitle>
+                  {/* <Subtitle>Agent Workflow</Subtitle>
                   {workflow.updates && workflow.updates.length > 0 ? (
                     <ul style={{ background: "#E3FCF7", padding: "10px", borderRadius: "20px" }}>
                       {workflow.updates.map((msg, idx) => (
@@ -261,8 +261,8 @@ export default function HomePage() {
                     </ul>
                   ) : (
                     <Body>No updates available.</Body>
-                  )}
-                  {workflow.chain_of_thought && (
+                  )} */}
+                  {/* {workflow.chain_of_thought && (
                     <>
                       <Subtitle style={{ marginTop: "20px" }}>Chain-of-Thought</Subtitle>
                     
@@ -271,10 +271,10 @@ export default function HomePage() {
 
                       </Card>
                     </>
-                  )}
+                  )} */}
                   {workflow.recommendation_text && (
                     <div style={{ marginTop: "30px" }}>
-                      <Subtitle>Final Recommendation</Subtitle>
+                      <Subtitle>Rekomendasi</Subtitle>
                       <Card  style={{ background: "#F9EBFF" }}>
                       <ReactMarkdown>{workflow.recommendation_text}</ReactMarkdown>
                       </Card>
@@ -291,11 +291,8 @@ export default function HomePage() {
           
         </div>
 
-
-        
-
-        {/* Right Column: Documents */}
-        <div style={{ flex: 1, maxWidth: "50%", padding: "20px", overflowX: "auto" }}>
+ 
+        {/* <div style={{ flex: 1, maxWidth: "50%", padding: "20px", overflowX: "auto" }}>
           {selectedOption === "list" ? (
             <>
               <Subtitle>Session Documents</Subtitle>
@@ -354,7 +351,7 @@ export default function HomePage() {
               )}
             </>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   </div>

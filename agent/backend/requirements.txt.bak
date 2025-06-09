@@ -4,5 +4,5 @@ python-dotenv
 pymongo
 openai
 voyageai
-langgraph 
+langgraph
 langgraph-checkpoint-mongodb

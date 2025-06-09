@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Connected Fleet Incident Advisor",
+  title: "Asisten Seputar Armada",
   description: "This AI Agent listens to driver complaints and advises on next course of action",
 };
 

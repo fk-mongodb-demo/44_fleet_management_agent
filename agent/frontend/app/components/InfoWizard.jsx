@@ -23,9 +23,9 @@ const InfoWizard = ({
   return (
     <>
       {/* Bigger button for navbars */}
-      <Button onClick={() => setOpen((prev) => !prev)} leftGlyph={<Icon glyph={iconGlyph} />}>
+      {/* <Button onClick={() => setOpen((prev) => !prev)} leftGlyph={<Icon glyph={iconGlyph} />}>
         Tell me more!
-      </Button>
+      </Button> */}
 
       <Modal open={open} setOpen={setOpen} className={styles.modal}>
         <div className={styles.modalContent}>
