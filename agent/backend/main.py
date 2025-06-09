@@ -319,7 +319,7 @@ def get_llm_recommendation(state: AgentState) -> AgentState:
     prompt = f"""
 You are a vehicle maintenance advisor.
 
-{critical_info}Given the following telemetry data and past similar issues, please analyze the data and recommend an immediate action (continue driving, pull off the road, or schedule maintenance) with a clear explanation.
+{critical_info}Given the following telemetry data and past similar issues, please analyze the data and recommend an immediate action (continue driving, pull off the road, or schedule maintenance) with a clear explanation in Bahasa Indonesia
 
 Telemetry Data: {telemetry_data}
 
