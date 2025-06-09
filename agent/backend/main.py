@@ -480,7 +480,7 @@ app.add_middleware(
 )
 
 @app.get("/api/run-agent")
-async def run_agent(issue_report: str = Query("My vehicle’s fuel consumption has increased significantly over the past week. What might be wrong with the engine or fuel system?", description="Issue report text")):
+async def run_agent(issue_report: str = Query("Armada sering kehabisan air radiator dan suhu mesin sering naik turun. Apa kira-kira penyebabnya dan apa yang seharusnya pengemudi lakukan?", description="Issue report text")):
     initial_state: AgentState = {
         "issue_report": issue_report,
         "chain_of_thought": "",
