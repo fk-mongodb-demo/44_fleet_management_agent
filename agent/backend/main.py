@@ -333,6 +333,7 @@ Similar Past Issues: {similar_issues}
                 {"role": "user", "content": prompt}
             ]
         )
+        
         recommendation = response.choices[0].message.content.strip()
     except Exception as e:
         print("Error generating LLM recommendation:", e)
